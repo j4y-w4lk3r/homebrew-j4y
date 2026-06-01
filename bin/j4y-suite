@@ -1,0 +1,53 @@
+#!/bin/bash
+# j4y-suite — status helper for the j4y-w4lk3r CLI suite.
+#
+# Installed by the j4y-suite Homebrew Cask. The cask itself does not
+# install any tools — it just declares its dependencies (rui, ykw, bbm,
+# fsvc) and brew chain-installs each from its own tap. This script is
+# a friendly "what state is my suite in?" inspector.
+
+set -u
+
+META_VERSION="0.1.0"
+TOOLS=(rui ykw bbm fsvc)
+
+cmd=${1:-version}
+case "$cmd" in
+    version|-v|--version|status)
+        echo "j4y-suite ${META_VERSION}"
+        echo
+        echo "Installed tools:"
+        for t in "${TOOLS[@]}"; do
+            if path=$(command -v "$t" 2>/dev/null); then
+                # Each tool reports its own version slightly differently;
+                # try common flags and fall back to "(installed)".
+                v=$("$t" -v 2>/dev/null || "$t" --version 2>/dev/null || echo "(installed)")
+                # Trim to first line for tidy output.
+                v=$(printf '%s' "$v" | head -n 1)
+                printf "  %-8s %-30s  %s\n" "$t" "$v" "$path"
+            else
+                printf "  %-8s %s\n" "$t" "(not on PATH)"
+            fi
+        done
+        ;;
+    help|-h|--help)
+        cat <<HELP
+Usage:
+  j4y-suite [version|status]   show meta-version + each tool's version
+  j4y-suite help               this message
+
+The suite is installed and upgraded via Homebrew:
+  brew install --cask j4y-w4lk3r/j4y/j4y-suite
+
+Each tool is independently versioned. Upgrade individually:
+  brew upgrade  j4y-w4lk3r/rui/rui   j4y-w4lk3r/ykw/ykw \\
+                j4y-w4lk3r/bbm/bbm
+  brew upgrade --cask j4y-w4lk3r/fsvc/fsvc
+HELP
+        ;;
+    *)
+        echo "j4y-suite: unknown subcommand: $cmd" >&2
+        echo "try: j4y-suite help" >&2
+        exit 2
+        ;;
+esac
