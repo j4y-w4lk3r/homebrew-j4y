@@ -2,7 +2,7 @@ class J4ySuite < Formula
   desc "Meta-formula installing the j4y-w4lk3r personal CLI suite"
   homepage "https://github.com/j4y-w4lk3r"
   url "https://github.com/j4y-w4lk3r/homebrew-j4y/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "b2871c8a5494f381752fedb33c4203877cdf0ded434d7139b199cf76e2b46e96"
   license "MIT"
   version "0.1.0"
 
