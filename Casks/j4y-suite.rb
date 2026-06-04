@@ -1,6 +1,6 @@
 cask "j4y-suite" do
-  version "0.1.0"
-  sha256 "5a63ff390280bba10d48b1be226c9ca19f4eae0c9d29ee0dbad8c9741bb2d66b"
+  version "0.2.0"
+  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
 
   url "https://github.com/j4y-w4lk3r/homebrew-j4y/archive/refs/tags/v#{version}.tar.gz"
   name "j4y-suite"
@@ -14,6 +14,7 @@ cask "j4y-suite" do
   #
   # Casks (unsigned macOS binaries shipped via goreleaser homebrew_casks):
   depends_on cask: "j4y-w4lk3r/fsvc/fsvc"
+  depends_on cask: "j4y-w4lk3r/bmcctl/bmcctl"
   # Formulas (CLI binaries / shell scripts):
   depends_on formula: "j4y-w4lk3r/rui/rui"
   depends_on formula: "j4y-w4lk3r/ykw/ykw"

@@ -8,8 +8,8 @@
 
 set -u
 
-META_VERSION="0.1.0"
-TOOLS=(rui ykw bbm fsvc)
+META_VERSION="0.2.0"
+TOOLS=(rui ykw bbm fsvc bmcctl)
 
 cmd=${1:-version}
 case "$cmd" in
@@ -42,7 +42,7 @@ The suite is installed and upgraded via Homebrew:
 Each tool is independently versioned. Upgrade individually:
   brew upgrade  j4y-w4lk3r/rui/rui   j4y-w4lk3r/ykw/ykw \\
                 j4y-w4lk3r/bbm/bbm
-  brew upgrade --cask j4y-w4lk3r/fsvc/fsvc
+  brew upgrade --cask j4y-w4lk3r/fsvc/fsvc      j4y-w4lk3r/bmcctl/bmcctl
 HELP
         ;;
     *)
