@@ -1,6 +1,6 @@
 cask "j4y-suite" do
   version "0.2.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "76fea4699075cc09a4ab0ba6265cd9fb97f70e99834462f87846aed5d0820925"
 
   url "https://github.com/j4y-w4lk3r/homebrew-j4y/archive/refs/tags/v#{version}.tar.gz"
   name "j4y-suite"
